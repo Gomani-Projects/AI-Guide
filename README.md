@@ -1,19 +1,13 @@
-# AI Coding Guides
+# AI Guides
 
-**Status:** planning
+Beginner-friendly guides to GitHub and building things with AI coding tools, especially Claude. No coding experience needed.
 
-## Goal
-A generic, beginner-friendly set of guides for anyone learning GitHub and AI coding tools (especially Claude). No company or org details, so it can be handed to anyone or copied into their own repo.
-
-## Contents
-| Start here | What it is |
+## Start here
+| Read | What it is |
 |---|---|
-| [ELI5.md](ELI5.md) | GitHub explained like you're 5 |
-| [CLAUDE-WTFM.md](CLAUDE-WTFM.md) | How to use Claude (Chat, Code tab, CLI), step by step |
-| [starter-training/](starter-training/README.md) | Hands-on 1–2 hour course: build a small app with AI and open a draft pull request |
-| [guide/](guide/README.md) | The full guide, plus [Glossary](guide/GLOSSARY.md) and [Token Optimisation](guide/TOKEN-OPTIMISATION.md) |
+| 🐣 [ELI5.md](ELI5.md) | GitHub explained like you're 5 |
+| 🤖 [CLAUDE-WTFM.md](CLAUDE-WTFM.md) | How to use Claude (Chat, Code tab, CLI), step by step |
+| 🎓 [starter-training/](starter-training/README.md) | Hands-on 1–2 hour course: build a small app with AI and open a draft pull request |
+| 📚 [guide/](guide/README.md) | The full guide, plus a [Glossary](guide/GLOSSARY.md) and [Token Optimisation](guide/TOKEN-OPTIMISATION.md) |
 
-## Notes
-- `starter-training/` is meant to become its own repo (learners copy it in Module 2). Split it out with:
-  `git subtree split --prefix=apps/ai-coding-guides/starter-training -b starter-training-export`
-- Links between the guides are relative, so the folder works anywhere as long as it stays together.
+Suggested order: ELI5 → Claude WTFM → starter training → dip into the full guide as you need it.
