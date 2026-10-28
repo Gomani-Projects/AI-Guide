@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Split the Bill</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f4f6f9; color: #1f2937; display: grid; place-items: center; min-height: 100vh; margin: 0; padding: 16px; box-sizing: border-box; }
+    main { background: #fff; padding: 24px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); width: 100%; max-width: 360px; }
+    h1 { margin-top: 0; color: #1F3A5F; }
+    label { display: block; margin: 12px 0 4px; font-weight: 600; }
+    input { width: 100%; padding: 10px; font-size: 1rem; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; }
+    button { margin-top: 16px; width: 100%; padding: 12px; font-size: 1rem; border: 0; border-radius: 8px; background: #1F3A5F; color: #fff; cursor: pointer; }
+    #result { margin-top: 16px; font-size: 1.2rem; min-height: 1.5em; }
+    .error { color: #b91c1c; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Split the Bill</h1>
+    <form id="form">
+      <label for="total">Bill total ($)</label>
+      <input id="total" type="number" min="0" step="0.01" inputmode="decimal">
+      <label for="tip">Tip (%)</label>
+      <input id="tip" type="number" min="0" value="10">
+      <label for="people">Number of people</label>
+      <input id="people" type="number" min="1" step="1" value="2">
+      <button type="submit">Calculate</button>
+    </form>
+    <p id="result" aria-live="polite"></p>
+  </main>
+  <script>
+    const result = document.getElementById('result');
+    document.getElementById('form').addEventListener('submit', e => {
+      e.preventDefault();
+      const total = parseFloat(document.getElementById('total').value);
+      const tip = parseFloat(document.getElementById('tip').value) || 0;
+      const people = parseInt(document.getElementById('people').value, 10);
+      if (!(total > 0) || !(people >= 1) || tip < 0) {
+        result.className = 'error';
+        result.textContent = 'Enter a bill over $0, a tip of 0% or more, and at least 1 person.';
+        return;
+      }
+      const each = total * (1 + tip / 100) / people;
+      result.className = '';
+      result.textContent = `Each person pays $${each.toFixed(2)}`;
+    });
+  </script>
+</body>
+</html>
